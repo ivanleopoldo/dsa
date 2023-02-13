@@ -56,8 +56,8 @@ float evaluate(char *equation){
     float A, B;
     for(; postfix[k]!='\0'; k++){
         if(isdigit(postfix[k])){
-            int temp = postfix[k] - '0';
-            push(temp);
+            char temp = postfix[k];
+            push(atoi(&temp));
         } else {
             A = pop();
             B = pop();
@@ -67,7 +67,7 @@ float evaluate(char *equation){
                     break;
                 }
                 case '-':{
-                    push(A-B);
+                    push(B-A);
                     break;
                 }
                 case '*':{
@@ -107,5 +107,12 @@ float pop(){
         free(top);
         top=temp;
         return data;
+    }
+}
+
+void display(){
+    Stack *trav = top;
+    for(; trav!=NULL; trav=trav->next){
+        printf("%f \n", trav->data);
     }
 }
