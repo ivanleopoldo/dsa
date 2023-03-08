@@ -44,9 +44,9 @@ int check(int set, int data){
 	temp ^= (1<<data);
 	if(temp<set){
 		return 1;
-	} else {
-		return 0;
-	}
+	} 
+	
+	return 0;
 }
 
 int removenum(int set, int data){
@@ -60,5 +60,3 @@ int intersection(int set1, int set2){
 int setunion(int set1, int set2){
 	return set1 | set2;
 }
-
-
